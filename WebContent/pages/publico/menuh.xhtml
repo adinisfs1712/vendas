@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition>
+	<p:menubar autoDisplay="true">
+		<p:menuitem value="Clientes" url="../restrito/cadastraCliente.jsf" />
+		<p:menuitem value="Pedidos" url="../restrito/pedidos.jsf" />
+		<p:submenu label="Tabelas">
+			<p:menuitem value="Fornecedores" url="../restrito/fornecedor.jsf" />
+			<p:menuitem value="Produtos" url="../restrito/cadastraProdutos.jsf" />
+			<p:menuitem value="Prestadores" url="../restrito/prestador.jsf" />
+			<p:menuitem value="Tipo de Cobrança" url="../publico/index.jsf" />
+		</p:submenu>
+		<p:submenu label="Relatórios">
+		</p:submenu>
+
+		<p:menuitem value="Sair" url="http://www.primefaces.org"
+			icon="ui-icon-close" />
+		<f:facet name="options">
+			<p:inputText style="margin-left:15px" />
+			<h:commandButton type="button" value="Sair" icon="ui-icon-extlink" />
+		</f:facet>
+	</p:menubar>
+</ui:composition>
+</html>

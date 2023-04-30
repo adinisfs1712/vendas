@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="#{controleTemplate.template}">
+	<ui:define name="titulo">
+	Pedidos
+	</ui:define>
+	<ui:define name="corpo">
+		<h:form id="clienteForm">
+			<p:focus for="telefone" />
+			<h:panelGrid columns="8" style="font-family: Verdana, Arial;"
+				columnClasses="column1, column2, column1, column2, column1, column2">
+
+				<h:outputLabel for="telefone" value="Telefone" />
+				<p:inputText id="telefone" label="Telefone"
+					value="#{clienteBean.cliente.telefone}" size="15" maxlenght="11">
+				</p:inputText>
+
+				<h:outputLabel />
+				<h:outputLabel />
+
+				<h:outputLabel for="cnpj" value="CPF" />
+				<p:inputMask id="cnpj" label="CNPJ"
+					value="#{clienteBean.cliente.cnpj}" size="23" required="false"
+					requiredMessage="CPF Campo obrigatório." alt="cnpj"
+					mask="999.999.999-99" converter="inputConverter" maxlength="14" />
+				<h:outputLabel />
+				<tr />
+
+				<!--h:outputLabel />
+
+					<h:outputLabel /-->
+
+				<h:outputLabel for="razaoSocial" value="Nome" styleClass="obrigat" />
+				<p:inputText id="razaoSocial" label="Nome"
+					value="#{clienteBean.cliente.razaoSocial}" size="60"
+					maxlenght="200" required="true"
+					requiredMassage="Nome: Campo obrigatório">
+					<f:validateLength maximum="200" minimum="5" />
+				</p:inputText>
+				<h:outputLabel />
+				<h:outputLabel />
+				<h:outputLabel />
+				<h:outputLabel />
+				<h:outputLabel /><h:outputLabel />
+				<h:outputLabel value="Endereco" styleClass="obrigat" />
+				<p:inputText id="logradouroEnd" label="Logradouro" maxlength="60"
+					required="true" size="65"
+					requiredMessage="Endereço: Campo obrigatório"
+					validatorMessage="Endereco deve ter até 60 caracteres"
+					value="#{clienteBean.endereco.logradouro}">
+					<f:validateLength maximum="60" />
+				</p:inputText>
+				<h:outputLabel value="Numero" styleClass="obrigat" />
+				<p:inputText id="numeroEnd" label="Numero Endereço" maxlength="9"
+					required="true" size="8"
+					requiredMessage="Numero Endereço: Campo Obrigatorio"
+					validatorMessage="Numero deve ter até 8 caracteres"
+					value="#{clienteBean.endereco.numero}">
+					<f:validateLength maximum="8" />
+				</p:inputText>
+				<h:outputLabel />
+				<h:outputLabel value="Complemento" />
+				<p:inputText id="complementoEnd" label="Complemento End"
+					maxlength="20" size="25"
+					validatorMessage="Complemento deve ter até 20 caracteres"
+					value="#{clienteBean.endereco.complemento}">
+					<f:validateLength maximum="20" />
+				</p:inputText>
+				<tr />
+				<h:outputLabel value="Bairro" />
+				<p:inputText id="bairroEnd" label="Bairro" maxlength="40" size="45"
+					validatorMessage="Bairro deve ter até 40 caracteres"
+					value="#{clienteBean.endereco.bairro}">
+					<f:validateLength maximum="40" />
+				</p:inputText>
+				<h:outputLabel />
+				<h:outputLabel />
+				<h:outputLabel value="Municipio" styleClass="obrigat" />
+
+				<p:selectOneMenu id="municipioEnd"
+					value="#{clienteBean.selectMunicipio}" style="width: 240px">
+					<f:selectItem itemLabel="Selecione Municipio.." itemValue="" />
+					<f:selectItems value="#{clienteBean.listaMunicipios}" var="mun"
+						itemValue="#{mun.id}" itemLabel="#{mun.nome}" />
+				</p:selectOneMenu>
+<h:outputLabel /><h:outputLabel />
+
+				<h:outputLabel value="E-Mail" />
+				<p:inputText id="email" label="E-Mail"
+					value="#{clienteBean.cliente.email}" size="55" maxlenght="50"
+					validatorMessage="E-Mail invalido">
+				</p:inputText>
+			</h:panelGrid>
+		</h:form>
+		<br />
+		<ui:include src="cadastraPedido.xhtml" />
+	</ui:define>
+</ui:composition>
+</html>
